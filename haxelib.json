@@ -1,0 +1,14 @@
+{
+    "name": "hxnodejs-braintree",
+    "url": "https://github.com/kevinresol/hxnodejs-braintree",
+    "license": "MIT",
+    "classPath": "src",
+    "tags": ["nodejs", "braintree"],
+    "description": "Externs for the braintree NPM module",
+    "releasenote": "WIP",
+    "version": "0.0.1",
+    "contributors": ["kevinresol"],
+    "dependencies": {
+        "js-kit": ""
+    }
+}
