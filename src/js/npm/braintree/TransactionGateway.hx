@@ -7,7 +7,10 @@ import js.npm.braintree.options.*;
 extern class TransactionGateway
 {
 	public function sale(options:SaleOptions, cb:Callback<TransactionResult>):Void;
-	public function submitForSettlement(transactionId:String, ?amount:String, cb:Callback<TransactionResult>):Void;
+
+	@:overload(function(transactionId:String, cb:Callback<TransactionResult>):Void {})
+	public function submitForSettlement(transactionId:String, amount:String, cb:Callback<TransactionResult>):Void;
+	
 	public function refund(transactionId:String, cb:Callback<TransactionResult>):Void;
 	public function void(transactionId:String, cb:Callback<TransactionResult>):Void;
 	

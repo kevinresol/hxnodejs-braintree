@@ -45,11 +45,19 @@ typedef Transaction =
 	id:String,
 	amount:String,
 	currencyIsoCode:String,
-	paymentInstrumentType:String, // "credit_card", "paypal_account", "europe_bank_account", "apple_pay_card", "coinbase_account", "venmo_account", "android_pay_card"
-	creditCard: {
-		cardType:String,
-		maskedNumber:String,
-	},
+	paymentInstrumentType:PaymentInstrumentType,
+	creditCard:CreditCard,
+	?paypalAccount:PaypalAccount,
+}
+
+@:enum
+abstract PaymentInstrumentType(String) to String {
+	var CreditCard = "credit_card";
+	var PaypalAccount = "paypal_account";
+	var ApplePayCard = "apple_pay_card";
+	var CoinbaseAccount = "coinbase_account";
+	var VenmoAccount = "venmo_account";
+	var AndroidPayCard = "android_pay_card";
 }
 
 typedef TransactionResult = 
