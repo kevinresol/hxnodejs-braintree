@@ -200,7 +200,11 @@ typedef PaymentMethod =
 typedef PaymentMethodResult =
 {
 	> Result,
-	paymentMethod:PaymentMethod
+	paymentMethod:PaymentMethod,
+	?androidPayCard:AndroidPayCard,
+	?applePayCard:ApplePayCard,
+	?creditCard:CreditCard,
+	?paypalAccount:PaypalAccount,
 }
 
 typedef PaypalAccount =
