@@ -15,7 +15,7 @@ extern class TransactionGateway
 	public function void(transactionId:String, cb:Callback<TransactionResult>):Void;
 	
 	public function find(transactionId:String, cb:Callback<Transaction>):Void;
-	public function search(searcher:Dynamic->Bool, cb:Callback<Dynamic>):Void;
+	public function search(searcher:Dynamic->Void, cb:Callback<Array<Transaction>>):Void;
 	
 	public function cancelRelease(transactionId:String, cb:Callback<TransactionResult>):Void;
 	public function holdInEscrow(transactionId:String, cb:Callback<TransactionResult>):Void;
