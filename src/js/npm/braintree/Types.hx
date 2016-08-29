@@ -8,6 +8,10 @@ typedef Result =
 	?params:Dynamic,
 }
 
+typedef Collection<T> = {
+	function each(cb:Dynamic->T->Void):Void;
+}
+
 typedef CreditCard = 
 {
 	billingAddress:Address,
@@ -43,11 +47,29 @@ typedef CreditCard =
 typedef Transaction = 
 {
 	id:String,
+	status:TransactionStatus,
 	amount:String,
 	currencyIsoCode:String,
 	paymentInstrumentType:PaymentInstrumentType,
 	creditCard:CreditCard,
 	?paypalAccount:PaypalAccount,
+}
+
+@:enum
+abstract TransactionStatus(String) to String {
+	var AuthorizationExpired = 'authorization_expired';
+	var Authorized = 'authorized';
+	var Authorizing = 'authorizing';
+	var SettlementPending = 'settlement_pending';
+	var SettlementConfirmed = 'settlement_confirmed';
+	var SettlementDeclined = 'settlement_declined';
+	var Failed = 'failed';
+	var GatewayRejected = 'gateway_rejected';
+	var ProcessorDeclined = 'processor_declined';
+	var Settled = 'settled';
+	var Settling = 'settling';
+	var SubmittedForSettlement = 'submitted_for_settlement';
+	var Voided = 'voided';
 }
 
 @:enum
